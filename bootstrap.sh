@@ -33,8 +33,8 @@ setup_dotfiles() {
   fi
 
   log "Linking configs"
-  ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
-  ln -sf "$DOTFILES_DIR/vimrc" ~/.vimrc
+  ln -sf "$DOTFILES_DIR/.tmux.conf" ~/.tmux.conf
+  ln -sf "$DOTFILES_DIR/.vimrc" ~/.vimrc
 }
 
 main() {
