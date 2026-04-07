@@ -15,7 +15,7 @@ install_uv() {
 }
 
 setup_completion() {
-  log "Setting up uv completion"
+  log "Setting up uv & uvx completion"
 
   grep -q "uv generate-shell-completion bash" ~/.bashrc 2>/dev/null ||
     echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
