@@ -17,8 +17,12 @@ install_uv() {
 setup_completion() {
   log "Setting up uv completion"
 
-  grep -q "uv completion bash" ~/.bashrc 2>/dev/null ||
-    echo 'eval "$(uv completion bash)"' >>~/.bashrc
+  grep -q "uv generate-shell-completion bash" ~/.bashrc 2>/dev/null ||
+    echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+
+  grep -q "uvx --generate-shell-completion bash" ~/.bashrc 2>/dev/null ||
+    echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
+
 }
 
 setup_dotfiles() {
