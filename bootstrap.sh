@@ -46,7 +46,7 @@ main() {
   sudo apt update -y
 
   log "Installing dependencies"
-  sudo apt install -y curl git bash-completion
+  sudo apt install -y curl git bash-completion tmux
 
   install_uv
   setup_completion
