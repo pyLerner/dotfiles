@@ -1,7 +1,9 @@
 #!/bin/bash
 
-git clone https://github.com/pyLerner/CAN-Tablo-Driver.git
-cd CAN-Tablo-Driver
+DIR=$HOME/CAN-Tablo-Driver
+
+git clone https://github.com/pyLerner/CAN-Tablo-Driver.git $DIR
+cd $DIR
 
 service=led-tablo.service
 sudo cp $service /etc/systemd/system/
