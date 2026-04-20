@@ -29,6 +29,7 @@ else
   fi
   mkdir -p "$(dirname "${APP_DIR}")"
   git clone "${REPO_URL}" "${APP_DIR}"
+  chown -R "${USER}":"${USER}" "${APP_DIR}"
 fi
 
 echo "[2/6] Ensure runtime script is executable"
