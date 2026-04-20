@@ -7,7 +7,7 @@ if [[ "${EUID}" -ne 0 ]]; then
   exit 1
 fi
 
-USER="$USER"
+USER="teamhd"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 APP_DIR="/home/${USER}/CAN-Tablo-Driver"
 SYSTEMD_DIR="/etc/systemd/system"
