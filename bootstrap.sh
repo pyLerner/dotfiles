@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+
+read -p "user@host:" USER_HOST
+read -p "Port:" PORT
+CMD="cat /mnt/data/upload/Projects/Infoteh-main-project/.githubtoken"
+GIT_TOKEN=$DEFAULT_TOKEN || $(ssh -p ${PORT} ${USER_HOST} ${CMD}) 2>/dev/null
+URL_PREFIX="http://oauth2:${GIT_TOKEN}@"
+
 set -euo pipefail
 
 log() {
@@ -30,7 +37,7 @@ setup_dotfiles() {
 
   if [ ! -d "$DOTFILES_DIR" ]; then
     log "Cloning dotfiles"
-    git clone https://github.com/pyLerner/dotfiles.git "$DOTFILES_DIR"
+    git clone "${HTTP_PREFIX}"github.com/pyLerner/dotfiles.git "$DOTFILES_DIR"
   else
     log "Updating dotfiles"
     git -C "$DOTFILES_DIR" pull
