@@ -4,8 +4,8 @@
 set -uo pipefail
 
 # 1. Запрашиваем параметры у пользователя
-read -p "Введите user@host: " USER_HOST
-read -p "Введите Port [по умолчанию 22]: " PORT
+read -p "Введите user@host: " USER_HOST </dev/tty
+read -p "Введите Port [по умолчанию 22]: " PORT </dev/tty
 PORT=${PORT:-22}
 
 # 2. Попытка получить токен через SSH
