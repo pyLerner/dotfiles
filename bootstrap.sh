@@ -1,12 +1,25 @@
 #!/usr/bin/env bash
 
-read -p "user@host:" USER_HOST
-read -p "Port:" PORT
-CMD="cat /mnt/data/upload/Projects/Infoteh-main-project/.githubtoken"
-GIT_TOKEN=$DEFAULT_TOKEN || $(ssh -p ${PORT} ${USER_HOST} ${CMD}) 2>/dev/null
-URL_PREFIX="http://oauth2:${GIT_TOKEN}@"
+# Включаем строгий режим сразу (кроме -e на момент получения токена)
+set -uo pipefail
 
-set -euo pipefail
+# 1. Сначала запрашиваем параметры у пользователя
+read -p "Введите user@host: " USER_HOST
+read -p "Введите Port [по умолчанию 22]: " PORT
+PORT=${PORT:-22} # Если порт не ввели, ставим 22
+
+# 2. Переменные для команды
+CMD="cat /mnt/data/upload/Projects/Infoteh-main-project/.githubtoken"
+
+# 3. Вычисляем токен (если ssh упадет, сработает || и запишется DEFAULT)
+# Из переменной окружения принимаем DEFAULT_TOKEN
+GIT_TOKEN=$(ssh -p "${PORT}" "${USER_HOST}" "${CMD}" 2>/dev/null) || GIT_TOKEN="$DEFAULT_TOKEN"
+
+URL_PREFIX="https://oauth2:${GIT_TOKEN}@"
+
+# Теперь можно включить выход при любой ошибке
+set -e
+
 
 log() {
   echo -e "\n[+] $1"
