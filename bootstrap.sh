@@ -37,7 +37,7 @@ setup_dotfiles() {
 
   if [ ! -d "$DOTFILES_DIR" ]; then
     log "Cloning dotfiles"
-    git clone "${HTTP_PREFIX}"github.com/pyLerner/dotfiles.git "$DOTFILES_DIR"
+    git clone "${URL_PREFIX}"github.com/pyLerner/dotfiles.git "$DOTFILES_DIR"
   else
     log "Updating dotfiles"
     git -C "$DOTFILES_DIR" pull
