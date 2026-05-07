@@ -80,7 +80,9 @@ main() {
   sudo apt update -y
 
   log "Installing dependencies"
-  sudo apt install -y curl git bash-completion tmux can-utils
+  sudo apt install -y curl git \
+   bash-completion tmux can-utils \
+   docker.io docker-compose-v1
 
   install_uv
   setup_completion
