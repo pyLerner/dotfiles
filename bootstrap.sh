@@ -82,7 +82,7 @@ main() {
   log "Installing dependencies"
   sudo apt install -y curl git \
    bash-completion tmux can-utils \
-   docker.io docker-compose-v1
+   docker.io docker-compose-v2
 
   install_uv
   setup_completion
