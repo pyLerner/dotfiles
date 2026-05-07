@@ -79,6 +79,15 @@ main() {
   log "Updating system"
   sudo apt update -y
 
+  log "Preparing docker setup"
+  sydo mkdir /etc/docker
+  cat << EOF > /etc/docker/daemon.json
+{
+    "iptables": false,
+    "bridge", "none"
+}
+EOF
+
   log "Installing dependencies"
   sudo apt install -y curl git \
    bash-completion tmux can-utils \
