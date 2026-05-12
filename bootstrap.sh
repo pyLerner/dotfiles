@@ -80,7 +80,7 @@ main() {
   sudo apt update -y
 
   log "Preparing docker setup"
-  sudo mkdir /etc/docker || true
+  sudo mkdir -p /etc/docker || true
   sudo cat << EOF > /etc/docker/daemon.json
 {
     "iptables": false,
