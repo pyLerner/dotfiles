@@ -81,10 +81,11 @@ main() {
 
   log "Preparing docker setup"
   sudo mkdir -p /etc/docker || true
-  sudo cat << EOF > /etc/docker/daemon.json
+
+sudo tee /etc/docker/daemon.json > /dev/null << EOF
 {
     "iptables": false,
-    "bridge", "none"
+    "bridge": "none"
 }
 EOF
 
