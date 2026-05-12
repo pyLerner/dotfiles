@@ -11,4 +11,4 @@ cp -a "${CAN0_SETUP_SERVICE}" "${SYSTEMD_DIR}/"
 systemctl daemon-reload
 systemctl enable "${CAN0_SETUP_SERVICE}"
 systemctl start "${CAN0_SETUP_SERVICE}"
-systemctl status ""${CAN0_SETUP_SERVICE}"
+systemctl status "${CAN0_SETUP_SERVICE}"
