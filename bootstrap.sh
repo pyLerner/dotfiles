@@ -81,7 +81,7 @@ main() {
 
   log "Preparing docker setup"
   sudo mkdir /etc/docker || true
-  cat << EOF > /etc/docker/daemon.json
+  sudo cat << EOF > /etc/docker/daemon.json
 {
     "iptables": false,
     "bridge", "none"
