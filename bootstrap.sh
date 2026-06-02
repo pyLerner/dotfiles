@@ -96,7 +96,7 @@ EOF
 
   install_uv
   setup_completion
-  $HOME/.local/bin/uv python install 3.12 3.13 3.14
+  $HOME/.local/bin/uv python install 3.13
   setup_dotfiles
 
   log "Bootstrap complete 🚀"
