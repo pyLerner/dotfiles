@@ -85,7 +85,14 @@ main() {
 sudo tee /etc/docker/daemon.json > /dev/null << EOF
 {
     "iptables": false,
-    "bridge": "none"
+    "bridge": "none",
+    "log-driver": "local",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3",
+        "mode": "non-blocking",
+        "max-buffer-size": "4m"
+    }
 }
 EOF
 
